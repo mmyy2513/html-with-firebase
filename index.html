@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase.js"></script>
+    </head>
+
+    <body>
+        <h1>Information</h1>
+        <hr/>
+
+        <p id="demo">Describe info about patient</p>
+        <pre id="object"></pre>
+        <button type="button" onclick="myFunction()">데이터 쓰기</button>
+
+        <script>
+            var firebaseConfig = {
+                apiKey: "AIzaSyCubCFe1U0nuENUD-u8Ldxpt9r9xh_gUzc",
+                authDomain: "xavier-557c6.firebaseapp.com",
+                projectId: "xavier-557c6",
+                storageBucket: "xavier-557c6.appspot.com",
+                messagingSenderId: "879419829168",
+                appId: "1:879419829168:web:cf7e0b3377c2965e104475",
+                databaseURL:"https://xavier-557c6-default-rtdb.firebaseio.com/",
+                measurementId: "G-5VXZKLNMYQ"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            // firebase에서 읽기
+            var demo = document.getElementById("demo");
+            var preObject = document.getElementById("object");
+            var dbRef = firebase.database().ref().child("object");
+            dbRef.on('value',snap => demo.innerHTML = snap.val());
+            dbRef.on('value',snap => {
+                preObject.innerText = JSON.stringify(snap.val(),null,3);
+            });
+        </script>
+
+        <script>
+            function myFunction() {
+                document.getElementById("demo").innerHTML = "쓰기를 완료";
+                alert("쓰기 완료");
+                
+                //firebase에 쓰기
+                var dbRefObject = firebase.database().ref();
+                dbRefObject.child("object").set("");
+            }
+        </script>
+    </body>
+</html>
+
