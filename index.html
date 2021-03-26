@@ -8,9 +8,19 @@
         <h1>Information</h1>
         <hr/>
 
-        <p id="demo">Describe info about patient</p>
-        <pre id="object"></pre>
-        <button type="button" onclick="myFunction()">데이터 쓰기</button>
+        <p>Describe info about patient</p>
+        <form>
+            name: <input id='Name' type='text'></br>
+            age: <input id='Age' type='text'></br>
+            phone: <input id="Phone" type='text'></br>
+        </form>
+
+        <script>
+            var Name = document.getElementById('Name');
+            var Age = document.getElementById('Age');
+        </script>
+
+        <button type="button" onclick="myFunction(Name, Age, Phone)">데이터 쓰기</button>
 
         <script>
             var firebaseConfig = {
@@ -26,23 +36,27 @@
             // Initialize Firebase
             firebase.initializeApp(firebaseConfig);
             // firebase에서 읽기
-            var demo = document.getElementById("demo");
-            var preObject = document.getElementById("object");
-            var dbRef = firebase.database().ref().child("object");
-            dbRef.on('value',snap => demo.innerHTML = snap.val());
-            dbRef.on('value',snap => {
-                preObject.innerText = JSON.stringify(snap.val(),null,3);
-            });
+            // var demo = document.getElementById("demo");
+            // var preObject = document.getElementById("object");
+            // var dbRef = firebase.database().ref().child("object");
+            // dbRef.on('value',snap => demo.innerHTML = snap.val());
+            // dbRef.on('value',snap => {
+            //     preObject.innerText = JSON.stringify(snap.val(),null,3);
+            // });
         </script>
 
         <script>
-            function myFunction() {
-                document.getElementById("demo").innerHTML = "쓰기를 완료";
-                alert("쓰기 완료");
+            function myFunction(Name, Age, Phone) {
                 
+                // alert(name.value);
                 //firebase에 쓰기
-                var dbRefObject = firebase.database().ref();
-                dbRefObject.child("object").set("");
+                var dbRefObject = firebase.database();
+                dbRefObject.ref(Name.value+'/').set({
+                    "age": Age.value,
+                    "phone": Phone.value
+                });
+                
+
             }
         </script>
     </body>
