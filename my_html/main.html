@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <title>메인</title>
+</head>
+
+<body>
+    <div>
+
+    </div>
+    <div class="mainblock" style="margin-top: 3%;">
+
+        <h1>Patient List</h1>
+
+    </div>
+
+    <div class="subshortblock" onclick="go_to('이성훈')">
+        <img src="hoon.jpg" style="width: 50%;padding-bottom: 0.5em;">
+        <br>
+        이성훈
+    </div>
+
+    <div class="subshortblock" onclick="go_to('오민영')">
+        <img src="hoon.jpg" style="width: 50%;padding-bottom: 0.3em;">
+        <br>
+        오민영
+    </div>
+   </br>
+    <div class="subshortblock" onclick="go_to('이수용')">
+      <img src="hoon.jpg" style="width: 50%;padding-bottom: 0.3em;">
+      <br>
+      이수용
+    </div>
+
+
+    <script type="text/javascript">
+        function go_to(who) {
+            name = who
+            location.href = "patient.html?" + name 
+        }
+
+    </script>
+</body>
+
+
+</html>

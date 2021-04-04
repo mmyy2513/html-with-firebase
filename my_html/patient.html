@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase.js"></script>
+
+
+</head>
+<script>
+    // Initialize Firebase
+        var firebaseConfig = {
+                   apiKey: "AIzaSyCubCFe1U0nuENUD-u8Ldxpt9r9xh_gUzc",
+                   authDomain: "xavier-557c6.firebaseapp.com",
+                   projectId: "xavier-557c6",
+                   storageBucket: "xavier-557c6.appspot.com",
+                   messagingSenderId: "879419829168",
+                   appId: "1:879419829168:web:cf7e0b3377c2965e104475",
+                   databaseURL:"https://xavier-557c6-default-rtdb.firebaseio.com/",
+                   measurementId: "G-5VXZKLNMYQ"
+               };
+        firebase.initializeApp(firebaseConfig);
+       
+ </script>
+
+<body>
+    <div class="mainblock" style="margin-top: 3%;">
+        <script>
+            document.write(name)
+        </script>
+    </div>
+    <div id = 'field'></div>
+
+    <script type='text/javascript'>
+
+        let dbTestRef = firebase.database().ref(name+'/')
+        window.onload = function(){
+            let List=[]
+
+            dbTestRef.on('value', function(snapshot){
+                var data = snapshot.val()
+                List.push({
+                    'age': data.age,
+                    'phone': data.phone,
+                    'memo': data.memo
+                })
+
+                var div1 = document.createElement('div');
+                var div2 = document.createElement('div');
+                var div3 = document.createElement('div');
+
+                div1.className = 'subblock';
+                div1.innerHTML = "Age : "+data.age
+
+                div2.className = 'subblock';
+                div2.innerHTML = "Phone : "+data.phone
+
+                div3.className = 'subblock';
+                div3.innerHTML = "Memo : "+data.memo
+
+                document.getElementById('field').appendChild(div1);
+                document.getElementById('field').appendChild(div2);
+                document.getElementById('field').appendChild(div3);
+            })
+        }
+    </script>
+    <div class="mainblock" onclick="to_write(name)">
+        정보 수정
+    </div>
+
+    <div class="mainblock" onclick="to_main()">
+        뒤로 가기
+    </div>
+
+
+    <script type="text/javascript">
+        function to_write(name) {
+            location.href = "Write.html?" + name 
+        }
+    </script>
+    
+    <script type="text/javascript">
+        function to_main() {
+            location.href = "main.html"
+        }
+    </script>
+</body>
+</html>
