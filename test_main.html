@@ -23,49 +23,24 @@
 
     </div>
 
-    <div class="subshortblock" onclick="go_to('이성훈')">
+    <div class="subshortblock" onclick="bb('이성훈')">
         <img src="hoon.jpg" style="width: 50%;padding-bottom: 0.5em;">
         <br>
         이성훈
     </div>
 
-    <div class="subshortblock" onclick="go_to('오민영')">
+    <div class="subshortblock" onclick="bb('오민영')">
         <img src="hoon.jpg" style="width: 50%;padding-bottom: 0.3em;">
         <br>
         오민영
     </div>
-   </br>
-    <div class="subshortblock" onclick="go_to('이수용')">
-      <img src="hoon.jpg" style="width: 50%;padding-bottom: 0.3em;">
-      <br>
-      이수용
-    </div>
-    <div class="subshortblock" onclick="go_to('김박사')">
-        <img src="hoon.jpg" style="width: 50%;padding-bottom: 0.3em;">
-        <br>
-        김박사
-      </div>
 
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-<div class="mainblock" onclick="to_add()" style="margin-top: 3%;">
-
-    정보 추가하기
-
-</div>
 
 
     <script type="text/javascript">
-        function go_to(who) {
-            name = who
+        function bb(menu) {
+            name = menu
             location.href = "patient.html?" + name 
-        }
-        function to_add(){
-            location.href = "add.html"
         }
 
     </script>
