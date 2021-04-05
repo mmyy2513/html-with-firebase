@@ -42,7 +42,7 @@
       <textarea id = "Memo" cols="70" rows="4"></textarea>
       
       <button type="button" onclick="save(Age, Phone, Memo)" class = "mainblock">저장</button>
-      <button type="button" onclick="go_to(name)" class = "mainblock">뒤로 가기</button>
+      <button type="button" onclick="to_main()" class = "mainblock">돌아가기</button>
       
    </body>
 
@@ -50,6 +50,7 @@
       function save(Age, Phone, Memo) {
          var dbRefObject = firebase.database();
          dbRefObject.ref(name+'/').set({
+            "name": name,
             "age": Age.value,
             "phone": Phone.value,
             "memo": Memo.value
@@ -59,8 +60,9 @@
          Memo.value = "";
 
       }
-      function go_to(name){
-         location.href = "patient.html?" + name 
+      function to_main(name){
+         
+         location.href = "main.html"
       }
    </script>
 </html>

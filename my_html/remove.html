@@ -33,47 +33,36 @@
         <h1>Patient List</h1>
     </div>
     <div id = 'field'></div>
-<div class="mainblock" onclick="to_add()" style="margin-top: 3%;">
-    정보 추가하기
-</div>
-<div class="mainblock" onclick="to_remove()" style="margin-top: 3%;">
-    삭제하기
-</div>
-
+    <button type="button" onclick="to_main()" class = "mainblock">돌아가기</button>
 
 <script type="text/javascript">
-
-    function to_add(){
-        location.href = "add.html"
-    }
-    function go_to(who) {
-    name = who
-    location.href = "patient.html?" + name 
-    }
-    function to_add(){
-        location.href = "add.html"
-    }
-    function to_remove(){
-        location.href = "remove.html"
+    function remove(val){
+        // console.log(val)
+        // var val = decodeURI(val);
+        firebase.database().ref(val+'/').remove();
+        location.href = "main.html";
     }
 
-</script>
-<script>
-    console.log(window.location.href)
-</script>
-<script type='text/javascript'>
+    function to_main(name){
+        
+        location.href = "main.html"
+    }
     
+       
     let dbTestRef = firebase.database().ref('/')
    
     dbTestRef.on('child_added', function(snapshot){
         var data = snapshot.val();
-        var name = data.name;
+        var a = encodeURI(data.name);
+        var b = data.name;
+        console.log(a)
         var div1 = document.createElement('div');
         var div2 = document.createElement('div');
         div1.className = 'subblock';
         div2.className = 'buttonblock';
         div1.innerHTML = data.name;
-        div2.innerHTML = `<div onclick="location.href='patient.html?${data.name}'">확인</div>`;
+        div2.innerHTML = `<div onclick="remove('${data.name}')">삭제</div>`;
+        
        
         document.getElementById('field').appendChild(div1);
         document.getElementById('field').appendChild(div2);
@@ -82,11 +71,4 @@
 
 </body>
 
-
 </html>
-
-<script type="text/javascript">
-    
-
-</script>
-

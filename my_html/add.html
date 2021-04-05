@@ -52,6 +52,7 @@
       function save(Name, Age, Phone, Memo) {
          var dbRefObject = firebase.database();
          dbRefObject.ref(Name.value+'/').set({
+            "name": Name.value,
             "age": Age.value,
             "phone": Phone.value,
             "memo": Memo.value

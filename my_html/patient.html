@@ -30,6 +30,15 @@
  </script>
 
 <body>
+    <script>
+        console.log(window.location.href)
+        var str = window.location.href
+        var val = str.substr(str.indexOf("?") + 1, 100)
+
+        var name = decodeURI(val)
+        
+        console.log(name)
+    </script>
     <div class="mainblock" style="margin-top: 3%;">
         <script>
             document.write(name)
