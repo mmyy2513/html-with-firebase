@@ -9,8 +9,6 @@
       <title></title>
       <link rel="stylesheet" type="text/css" href="style.css">
       <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase.js"></script>
-
-
    </head>
    <script>
       // Initialize Firebase
@@ -27,25 +25,23 @@
          firebase.initializeApp(firebaseConfig);
          
    </script>
-
    <body>
       <div class="mainblock" style="margin-top: 3%;">
          <script>
             document.write(name)
          </script>
       </div>
-      <div class="subshortblock">Age</div></br>
+      <div class="subshortblock">Age</div>
+      </br>
       <input id='Age' type='text'></br>
-      <div class="subshortblock">Phone</div></br>
+      <div class="subshortblock">Phone</div>
+      </br>
       <input id='Phone' type='text'></br>
       <div class="subshortblock">Memo</div>
       <textarea id = "Memo" cols="70" rows="4"></textarea>
-      
-      <button type="button" onclick="save(Age, Phone, Memo)" class = "mainblock">저장</button>
-      <button type="button" onclick="to_main()" class = "mainblock">돌아가기</button>
-      
+      <button type="button" onclick="save(Age, Phone, Memo)" class = "mainblock" style="margin-top: 3%;">저장</button>
+      <button type="button" onclick="to_main()" class = "mainblock" style="margin-top: 3%;">돌아가기</button>
    </body>
-
    <script>
       function save(Age, Phone, Memo) {
          var dbRefObject = firebase.database();
@@ -58,10 +54,9 @@
          Age.value ="";
          Phone.value = "";
          Memo.value = "";
-
+      
       }
       function to_main(name){
-         
          location.href = "main.html"
       }
    </script>
