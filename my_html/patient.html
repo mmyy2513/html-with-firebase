@@ -51,25 +51,31 @@
                  List.push({
                      'age': data.age,
                      'phone': data.phone,
+                     'medicine': data.medicine,
                      'memo': data.memo
                  })
          
                  var div1 = document.createElement('div');
                  var div2 = document.createElement('div');
                  var div3 = document.createElement('div');
+                 var div4 = document.createElement('div');
          
                  div1.className = 'subblock';
                  div1.innerHTML = "Age : "+data.age
          
                  div2.className = 'subblock';
                  div2.innerHTML = "Phone : "+data.phone
-         
+
                  div3.className = 'subblock';
-                 div3.innerHTML = "Memo : "+data.memo
+                 div3.innerHTML = "Medicine : "+data.medicine
+         
+                 div4.className = 'subblock';
+                 div4.innerHTML = "Memo : "+data.memo
          
                  document.getElementById('field').appendChild(div1);
                  document.getElementById('field').appendChild(div2);
                  document.getElementById('field').appendChild(div3);
+                 document.getElementById('field').appendChild(div4);
              })
          }
       </script>

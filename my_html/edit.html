@@ -37,21 +37,26 @@
       <div class="subshortblock">Phone</div>
       </br>
       <input id='Phone' type='text'></br>
+      <div class="subshortblock">Medicine</div>
+      </br>
+      <input id='Medicine' type='text'></br>
       <div class="subshortblock">Memo</div>
       <textarea id = "Memo" cols="70" rows="4"></textarea>
       <button type="button" onclick="save(Age, Phone, Memo)" class = "mainblock" style="margin-top: 3%;">저장</button>
       <button type="button" onclick="to_main()" class = "mainblock" style="margin-top: 3%;">돌아가기</button>
    </body>
    <script>
-      function save(Age, Phone, Memo) {
+      function save(Age, Phone, Medicine, Memo) {
          var dbRefObject = firebase.database();
          dbRefObject.ref(name+'/').set({
             "name": name,
             "age": Age.value,
             "phone": Phone.value,
+            "medicine": Medicine.value,
             "memo": Memo.value
          });
          Age.value ="";
+         Medicine.value ="";
          Phone.value = "";
          Memo.value = "";
       
