@@ -36,40 +36,51 @@
       </br>
       <input id='Name' type='text'></br>
 
-      <div class="subshortblock">Age</div>
+      <div class="subshortblock">Pressure</div>
       </br>
-      <input id='Age' type='text'></br>
+      <input id='Pressure' type='text'></br>
 
-      <div class="subshortblock">Phone</div>
+      <div class="subshortblock">Dang</div>
       </br>
-      <input id='Phone' type='text'></br>
+      <input id='Dang' type='text'></br>
+
+      <div class="subshortblock">Weight</div>
+      </br>
+      <input id='Weight' type='text'></br>
     
       <div class="subshortblock">Medicine</div>
       </br>
       <input id='Medicine' type='text'></br>
+
+      <div class="subshortblock">Meal</div>
+      </br>
+      <input id='Meal' type='text'></br>
     
       <div class="subshortblock">Memo</div>
       </br>
       <textarea id = "Memo" cols="70" rows="4"></textarea>
-      <div onclick="save(Name, Age, Phone, Medicine, Memo)" class = "mainblock" style="margin-top: 3%;">저장</div>
+      <div onclick="save(Name, Pressure, Dang, Weight, Medicine, Meal, Memo)" class = "mainblock" style="margin-top: 3%;">저장</div>
       <div onclick="to_main()" class = "mainblock" style="margin-top: 3%;">뒤로 가기</div>
    </body>
    <script>
-      function save(Name, Age, Phone, Medicine, Memo) {
+      function save(Name, Pressure, Dang, Weight, Medicine, Meal, Memo) {
          var dbRefObject = firebase.database();
          dbRefObject.ref(Name.value+'/').set({
             "name": Name.value,
-            "age": Age.value,
-            "phone": Phone.value,
+            "pressure": Pressure.value,
+            "dang": Dang.value,
+            "weight": Weight.value,
             "memo": Memo.value,
-            "medicine": Medicine.value
+            "medicine": Medicine.value,
+            "meal" : Meal.value
          });
          Name.value ="";
-         Age.value ="";
-         Phone.value = "";
+         Pressure.value ="";
+         Dang.value = "";
          Memo.value = "";
          Medicine.value = "";
-        
+         Weight.value = "";
+         Meal.value = "";
       }
       
         function to_main() {
