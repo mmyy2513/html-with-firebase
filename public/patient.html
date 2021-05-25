@@ -64,24 +64,28 @@
                  var div4 = document.createElement('div');
                  var div5 = document.createElement('div');
                  var div6 = document.createElement('div');
+                 var div7 = document.createElement('div');
          
                  div1.className = 'subblock';
-                 div1.innerHTML = "BloodPressure : "+data.pressure
+                 div1.innerHTML = "혈압 : "+data.pressure
          
                  div2.className = 'subblock';
-                 div2.innerHTML = "BloodSugar : "+data.dang
+                 div2.innerHTML = "혈당 : "+data.dang
 
                  div3.className = 'subblock';
-                 div3.innerHTML = "Weight : "+data.weight
+                 div3.innerHTML = "체중 : "+data.weight
          
                  div4.className = 'subblock';
-                 div4.innerHTML = "Medicine : "+data.medicine
+                 div4.innerHTML = "약 시간 : "+data.medicine
 
                  div5.className = 'subblock';
-                 div5.innerHTML = "Meal : "+data.meal
+                 div5.innerHTML = "밥 시간 : "+data.meal
 
                  div6.className = 'subblock';
-                 div6.innerHTML = "Memo : "+data.memo
+                 div6.innerHTML = "운동 여부 : "+data.meal
+
+                 div7.className = 'subblock';
+                 div7.innerHTML = "특이사항 : "+data.memo
          
                  document.getElementById('field').appendChild(div1);
                  document.getElementById('field').appendChild(div2);
@@ -89,6 +93,7 @@
                  document.getElementById('field').appendChild(div4);
                  document.getElementById('field').appendChild(div5);
                  document.getElementById('field').appendChild(div6);
+                 document.getElementById('field').appendChild(div7);
              })
          }
       </script>

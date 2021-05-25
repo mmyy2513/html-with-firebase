@@ -31,30 +31,34 @@
             document.write(name)
          </script>
       </div>
-      <div class="subshortblock">BloodPressure</div>
+      <div class="subshortblock">혈압</div>
       </br>
       <input id='Pressure' type='text'></br>
 
-      <div class="subshortblock">BloodSugar</div>
+      <div class="subshortblock">혈당</div>
       </br>
       <input id='Dang' type='text'></br>
 
-      <div class="subshortblock">Weight</div>
+      <div class="subshortblock">체중</div>
       </br>
       <input id='Weight' type='text'></br>
     
-      <div class="subshortblock">Medicine</div>
+      <div class="subshortblock">약 시간</div>
       </br>
       <input id='Medicine' type='text'></br>
 
-      <div class="subshortblock">Meal</div>
+      <div class="subshortblock">밥 시간</div>
       </br>
       <input id='Meal' type='text'></br>
+
+      <div class="subshortblock">운동 여부</div>
+      </br>
+      <input id='Exercise' type='text'></br>
     
-      <div class="subshortblock">Memo</div>
+      <div class="subshortblock">특이사항</div>
       </br>
       <textarea id = "Memo" cols="70" rows="4"></textarea>
-      <button type="button" onclick="save(Age, Phone, Memo)" class = "mainblock" style="margin-top: 3%;">저장</button>
+      <div onclick="save(Name, Pressure, Dang, Weight, Medicine, Meal, Exercise, Memo)" class = "mainblock" style="margin-top: 3%;">저장</div>
       <button type="button" onclick="to_main()" class = "mainblock" style="margin-top: 3%;">돌아가기</button>
    </body>
    <script>
@@ -67,6 +71,7 @@
             "weight": Weight.value,
             "memo": Memo.value,
             "medicine": Medicine.value,
+            "exercise": Exercise.value,
             "meal" : Meal.value
          });
          Name.value ="";
@@ -76,6 +81,7 @@
          Medicine.value = "";
          Weight.value = "";
          Meal.value = "";
+         Exercise.value = "";
       
       }
       function to_main(name){
