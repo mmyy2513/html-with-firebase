@@ -35,12 +35,12 @@
              // console.log(val)
              // var val = decodeURI(val);
              firebase.database().ref(val+'/').remove();
-             location.href = "main.html";
+             location.href = "index.html";
          }
          
          function to_main(name){
              
-             location.href = "main.html"
+             location.href = "index.html"
          }
                      
          let dbTestRef = firebase.database().ref('/')
