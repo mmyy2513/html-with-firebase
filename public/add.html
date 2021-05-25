@@ -67,7 +67,7 @@
       <div onclick="to_main()" class = "mainblock" style="margin-top: 3%;">뒤로 가기</div>
    </body>
    <script>
-      function save(Name, Pressure, Dang, Weight, Medicine, Meal, Memo) {
+      function save(Name, Pressure, Dang, Weight, Medicine, Meal, Exercise, Memo) {
          var dbRefObject = firebase.database();
          dbRefObject.ref(Name.value+'/').set({
             "name": Name.value,
